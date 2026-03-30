@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${DATASOURCE_URL}
-    username: ${DATASOURCE_USER}
-    password: ${DATASOURCE_PASS}
+    url: ${DATASOURCE_URL_STAGING}
+    username: ${DATASOURCE_USER_STAGING}
+    password: ${DATASOURCE_PASS_STAGING}
   jpa:
     hibernate:
       ddl-auto: update
