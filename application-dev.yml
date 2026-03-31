@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: ${DATASOURCE_URL_DEV}
-    username: ${DATASOURCE_USER_DEV}
-    password: ${DATASOURCE_PASS_DEV}
+    url: jdbc:h2:mem:worldweatherdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password: 
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
