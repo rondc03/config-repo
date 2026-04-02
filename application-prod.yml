@@ -1,16 +1,15 @@
 spring:
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
     url: ${{ secrets.DATASOURCE_URL }}
     username: ${{ secrets.DATASOURCE_USER }}
     password: ${{ secrets.DATASOURCE_PASS }}
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: "org.hibernate.dialect.PostgreSQLDialect"
+        temp:
+          use_jdbc_metadata_defaults: false
           
