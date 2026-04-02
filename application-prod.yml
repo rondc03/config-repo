@@ -1,16 +1,10 @@
-spring:
-  datasource:
-    url: jdbc:postgresql://ep-old-term-a1lzy708-pooler.ap-southeast-1.aws.neon.tech:5432/neondb?sslmode=require&ssl=true
-    username: neondb_owner
-    password: npg_8Qehu3WVZpiL
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        dialect: "org.hibernate.dialect.PostgreSQLDialect"
-        temp:
-          use_jdbc_metadata_defaults: false    
-
-custom:
-  api-key: ${API_KEY}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        env:
+          # Mapping GitHub Secrets to Env Vars that Spring Boot recognizes
+          DB_URL: ${{ secrets.DATASOURCE_URL }}
+          DB_USER: ${{ secrets.DATASOURCE_USER }}
+          DB_PASS: ${{ secrets.DATASOURCE_PASS }}
