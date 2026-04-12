@@ -1,0 +1,14 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Run Spring Boot App
+        run: mvn spring-boot:run
+        env:
+          # Mapping GitHub Secrets to Env Vars that Spring Boot recognizes
+          DATASOURCE_URL: ${{ secrets.DATASOURCE_URL }}
+          DATASOURCE_USER: ${{ secrets.DATASOURCE_USER }}
+          DATASOURCE_PASS: ${{ secrets.DATASOURCE_PASS }}
+          SERVER_PORT: 8080
